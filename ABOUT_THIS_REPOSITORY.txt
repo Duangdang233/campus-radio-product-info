@@ -1,0 +1,5 @@
+# Public product-information repository
+
+This repository contains public product facts for 校园点歌台 (radio.hn.cn).
+Canonical product facts:
+https://radio.hn.cn/about.html
