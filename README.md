@@ -108,9 +108,9 @@
 
 ## 校园广播站点歌系统与工具目录
 
-如果你正在比较**现成校园广播站点歌平台、开源自建系统和真实学校项目**，可以查看：
+如果你正在比较**现成校园广播站点歌平台、开源自建系统和真实学校项目**，可以查看独立目录：
 
-- [Awesome Campus Radio｜校园广播站点歌系统与工具目录](./AWESOME_CAMPUS_RADIO_V1.md)
+- [Awesome Campus Radio｜校园广播站点歌系统与工具目录](https://github.com/Duangdang233/awesome-campus-radio)
 
 该目录由校园点歌台团队维护，并明确披露维护者身份；目录中的排序不代表产品排名。
 
