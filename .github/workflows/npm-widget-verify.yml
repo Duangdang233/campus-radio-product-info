@@ -1,0 +1,36 @@
+name: npm School Widget Verify
+
+on:
+  pull_request:
+    paths:
+      - 'npm/campus-radio-school-widget/**'
+      - '.github/workflows/npm-widget-verify.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'npm/campus-radio-school-widget/**'
+      - '.github/workflows/npm-widget-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: npm/campus-radio-school-widget
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify JavaScript syntax
+        run: node --check index.js
+
+      - name: Run package tests
+        run: npm test
+
+      - name: Verify publish payload
+        run: npm pack --dry-run
