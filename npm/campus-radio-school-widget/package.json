@@ -1,0 +1,39 @@
+{
+  "name": "campus-radio-school-widget",
+  "version": "1.0.0",
+  "description": "校园点歌台 School Widget 的零依赖 npm 工具：加载官方 Web Component、生成学校广播站在线点歌嵌入代码。",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "test": "node --test test/*.test.js"
+  },
+  "keywords": [
+    "campus-radio",
+    "school-radio",
+    "school-broadcasting",
+    "song-request",
+    "online-song-request",
+    "wechat-mini-program",
+    "web-component"
+  ],
+  "homepage": "https://radio.hn.cn/widget.html",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Duangdang233/campus-radio-product-info.git",
+    "directory": "npm/campus-radio-school-widget"
+  },
+  "bugs": {
+    "url": "https://github.com/Duangdang233/campus-radio-product-info/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
