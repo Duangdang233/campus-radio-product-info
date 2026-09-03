@@ -1,0 +1,174 @@
+{
+  "info": {
+    "_postman_id": "b1d1c894-74cd-4ddd-b378-17a3a9dbcc01",
+    "name": "校园点歌台 Public API",
+    "description": "校园点歌台（https://radio.hn.cn/）面向学校广播站在线点歌场景提供的只读公共 API 集合。用于读取官方产品事实、公开统计数据和 OpenAPI 描述。无需认证，不包含用户数据、后台接口或写操作。微信小程序：校园点歌 I 云点歌台。",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://radio.hn.cn",
+      "type": "string",
+      "description": "校园点歌台官方网站与 Public API 基础地址"
+    }
+  ],
+  "item": [
+    {
+      "name": "产品事实",
+      "description": "读取校园点歌台的官方公开产品事实，包括产品名称、类别、产品边界、微信小程序等公开信息。",
+      "item": [
+        {
+          "name": "GET /api/public/product",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/public/product",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "public",
+                "product"
+              ]
+            },
+            "description": "官方只读产品事实接口。无需认证，不包含个人或学校内部数据。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('JSON response', function () {",
+                  "  pm.response.to.be.json;",
+                  "});",
+                  "pm.test('Official product name is present', function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(JSON.stringify(body)).to.include('校园点歌台');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "公开统计",
+      "description": "读取校园点歌台的公开真实使用统计快照。统计口径与官方产品事实保持一致。",
+      "item": [
+        {
+          "name": "GET /api/public/stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/public/stats",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "public",
+                "stats"
+              ]
+            },
+            "description": "官方只读公开统计接口。当前公开统计包括入驻学校规模、产生过真实点歌的学校数量、累计真实点歌请求和首条真实请求日期。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('JSON response', function () {",
+                  "  pm.response.to.be.json;",
+                  "});",
+                  "pm.test('Public stats payload is non-empty', function () {",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(Object.keys(body).length).to.be.above(0);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "OpenAPI",
+      "description": "读取校园点歌台 Public API 的 OpenAPI 描述。",
+      "item": [
+        {
+          "name": "GET /openapi.json",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/openapi.json",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "openapi.json"
+              ]
+            },
+            "description": "官方 OpenAPI 文档入口，仅描述公开只读接口。"
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test('HTTP 200', function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Valid OpenAPI JSON', function () {",
+                  "  pm.response.to.be.json;",
+                  "  const body = pm.response.json();",
+                  "  pm.expect(body).to.have.property('openapi');",
+                  "  pm.expect(body).to.have.property('paths');",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "response": []
+        }
+      ]
+    }
+  ]
+}
