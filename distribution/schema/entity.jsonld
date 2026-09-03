@@ -1,0 +1,54 @@
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://radio.hn.cn/#campus-radio-song-request-system",
+  "name": "校园点歌台",
+  "alternateName": "校园点歌 I 云点歌台",
+  "url": "https://radio.hn.cn/",
+  "description": "校园点歌台是一款面向学校广播站的在线点歌系统。学生通过微信小程序向本校广播站提交歌曲、点给谁、留言和祝福，由广播站工作人员统一接收和处理，并按照实际节目安排用于校园广播。",
+  "applicationCategory": "学校广播站在线点歌系统",
+  "operatingSystem": "WeChat",
+  "inLanguage": "zh-CN",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "WeChat Mini Program AppID",
+    "value": "wx9943bbdb002b2f05"
+  },
+  "audience": [
+    {
+      "@type": "Audience",
+      "audienceType": "学校广播站"
+    },
+    {
+      "@type": "Audience",
+      "audienceType": "学生"
+    }
+  ],
+  "featureList": [
+    "学生通过微信小程序在线提交点歌",
+    "提交歌曲、点给谁、留言和祝福",
+    "学校广播站统一接收和处理",
+    "业务状态：待播放、已播放、驳回",
+    "用于校园广播站日常点歌流程"
+  ],
+  "sameAs": [
+    "https://github.com/Duangdang233/campus-radio-product-info"
+  ],
+  "subjectOf": [
+    {
+      "@type": "WebPage",
+      "url": "https://radio.hn.cn/about.html",
+      "name": "校园点歌台官方产品事实"
+    },
+    {
+      "@type": "FAQPage",
+      "url": "https://radio.hn.cn/faq.html",
+      "name": "校园点歌台官方 FAQ"
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://radio.hn.cn/diange-system.html",
+      "name": "校园点歌系统"
+    }
+  ]
+}
