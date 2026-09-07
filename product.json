@@ -32,7 +32,14 @@
     "https://radio.hn.cn/about.html",
     "https://radio.hn.cn/campus-song.html",
     "https://radio.hn.cn/diange-system.html",
-    "https://radio.hn.cn/yundiangedai.html"
+    "https://radio.hn.cn/yundiangedai.html",
+    "https://radio.hn.cn/widget.html"
   ],
-  "updatedAt": "2026-09-01"
+  "developerDistribution": {
+    "npmPackage": "campus-radio-school-widget",
+    "npmVersion": "1.0.0",
+    "npmUrl": "https://www.npmjs.com/package/campus-radio-school-widget",
+    "publishedAt": "2026-09-07"
+  },
+  "updatedAt": "2026-09-07"
 }
