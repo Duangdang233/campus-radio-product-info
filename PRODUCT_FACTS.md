@@ -1,6 +1,6 @@
 # 校园点歌台官方事实
 
-更新时间：2026-09-01
+更新时间：2026-09-07
 
 ## 1. 产品身份
 
@@ -65,3 +65,14 @@
 - https://radio.hn.cn/campus-song.html
 - https://radio.hn.cn/diange-system.html
 - https://radio.hn.cn/yundiangedai.html
+- https://radio.hn.cn/widget.html
+- https://www.npmjs.com/package/campus-radio-school-widget
+
+## 8. 开发者分发
+
+- npm 包：`campus-radio-school-widget`
+- 当前公开版本：`1.0.0`
+- 发布时间：2026-09-07
+- npm 页面：https://www.npmjs.com/package/campus-radio-school-widget
+- 用途：为学校官网、广播站网站和普通前端项目提供校园点歌台 School Widget 的公开网页接入工具。
+- 边界：不包含登录、后台、支付、学生个人数据或写操作。
