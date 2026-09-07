@@ -8,8 +8,17 @@
 - Widget runtime：https://radio.hn.cn/widget.js
 - 公开学校目录：https://radio.hn.cn/schools/
 - 产品官网：https://radio.hn.cn/
+- npm：https://www.npmjs.com/package/campus-radio-school-widget
 
 > 这个包只处理公开网页入口，不包含登录、后台、支付、学生个人数据或写操作。
+
+## 安装
+
+```bash
+npm install campus-radio-school-widget
+```
+
+当前公开版本：`1.0.0`
 
 ## 适合谁
 
@@ -116,4 +125,4 @@ https://radio.hn.cn/school/<school>/
 
 ## 发布状态
 
-仓库中的 `1.0.0` 是 npm 发布候选包。只有在 npm registry 实际发布完成后，才应把它描述为“已发布 npm 包”。
+`campus-radio-school-widget@1.0.0` 已于 2026-09-07 发布到公开 npm registry。
