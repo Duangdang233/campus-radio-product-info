@@ -1,6 +1,6 @@
 {
   "name": "campus-radio-school-widget",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "校园点歌台 School Widget 的零依赖 npm 工具：加载官方 Web Component、生成学校广播站在线点歌嵌入代码。",
   "type": "module",
   "main": "./index.js",
