@@ -25,14 +25,25 @@
     "schoolsWithRealRequests": 84,
     "cumulativeRealSongRequests": 5561,
     "earliestRealSongRequestDate": "2023-09-01",
-    "note": "完成入驻不等同于当前活跃学校"
+    "note": "完成入驻不等同于当前活跃学校；该对象是历史统计快照，不代表当前实时入驻数量"
+  },
+  "schoolDirectory": {
+    "directoryPage": "https://radio.hn.cn/schools/",
+    "structuredApi": "https://radio.hn.cn/api/public/schools",
+    "liveRegistryApi": "https://radio.hn.cn/api/public/schools/live",
+    "structuredCountMeaning": "已完成公开元数据整理并去重的学校/培训实体数量，不等于当前全部入驻项目数量",
+    "liveCountMeaning": "当前入驻数量应从实时名录 data 中的名称集合展开并去重后计算，不在本仓库写死",
+    "documentation": "https://github.com/Duangdang233/campus-radio-product-info/blob/main/SCHOOL_DIRECTORY.md"
   },
   "officialPages": [
     "https://radio.hn.cn/",
     "https://radio.hn.cn/about.html",
+    "https://radio.hn.cn/schools/",
+    "https://radio.hn.cn/api/public/schools",
+    "https://radio.hn.cn/api/public/schools/live",
+    "https://radio.hn.cn/openapi.json",
     "https://radio.hn.cn/campus-song.html",
     "https://radio.hn.cn/diange-system.html",
-    "https://radio.hn.cn/yundiangedai.html",
     "https://radio.hn.cn/widget.html"
   ],
   "developerDistribution": {
