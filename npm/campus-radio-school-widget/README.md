@@ -128,3 +128,5 @@ https://radio.hn.cn/school/<school>/
 npm package：https://www.npmjs.com/package/campus-radio-school-widget
 
 具体版本与发布时间以 npm registry 为准，避免仓库 README 与已发布 tarball 因发布时间差异产生状态冲突。
+
+`1.0.1` 仅修正文档中的发布状态说明，运行时代码和公开 API 与 `1.0.0` 保持一致。
