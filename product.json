@@ -14,7 +14,7 @@
   "notBusinessStatuses": ["安排", "已安排"],
   "productBoundaries": [
     "不是在线音乐播放器",
-    "不提供远程控制学校广播设备",
+    "不提供远程控制学校广播硬件的软件",
     "不是音乐社交社区",
     "不是某一所学校名为“校园点歌台”的广播栏目",
     "不代替学校广播站实际完成播音工作"
@@ -37,9 +37,9 @@
   ],
   "developerDistribution": {
     "npmPackage": "campus-radio-school-widget",
-    "npmVersion": "1.0.0",
+    "npmVersion": "1.0.1",
     "npmUrl": "https://www.npmjs.com/package/campus-radio-school-widget",
-    "publishedAt": "2026-09-07"
+    "publishedAt": "2026-09-10"
   },
-  "updatedAt": "2026-09-07"
+  "updatedAt": "2026-09-10"
 }
