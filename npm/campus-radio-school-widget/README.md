@@ -18,7 +18,7 @@
 npm install campus-radio-school-widget
 ```
 
-当前公开版本：`1.0.0`
+具体公开版本与发布时间以 npm registry 页面为准。
 
 ## 适合谁
 
@@ -123,6 +123,10 @@ https://radio.hn.cn/school/<school>/
 
 “安排”“已安排”不是校园点歌台业务状态。
 
-## 发布状态
+## 发布信息
 
-`campus-radio-school-widget@1.0.0` 已于 2026-09-07 发布到公开 npm registry。
+npm package：https://www.npmjs.com/package/campus-radio-school-widget
+
+具体版本与发布时间以 npm registry 为准，避免仓库 README 与已发布 tarball 因发布时间差异产生状态冲突。
+
+`1.0.1` 仅修正文档中的发布状态说明，运行时代码和公开 API 与 `1.0.0` 保持一致。
