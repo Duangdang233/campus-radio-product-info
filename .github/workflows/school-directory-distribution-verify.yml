@@ -10,6 +10,7 @@ on:
       - 'school-directory.json'
       - 'postman/**'
       - 'distribution/postman/**'
+      - 'distribution/apifox/**'
       - '.github/workflows/school-directory-distribution-verify.yml'
   push:
     branches:
@@ -22,6 +23,7 @@ on:
       - 'school-directory.json'
       - 'postman/**'
       - 'distribution/postman/**'
+      - 'distribution/apifox/**'
       - '.github/workflows/school-directory-distribution-verify.yml'
 
 permissions:
@@ -97,4 +99,11 @@ jobs:
           grep -Fq '/api/public/schools/live' postman/README.md
           grep -Fq '/api/public/schools' distribution/postman/README.md
           grep -Fq '/api/public/schools/live' distribution/postman/README.md
+          grep -Fq 'https://radio.hn.cn/api/public/product' distribution/apifox/README.md
+          grep -Fq 'https://radio.hn.cn/api/public/stats' distribution/apifox/README.md
+          grep -Fq 'https://radio.hn.cn/api/public/schools' distribution/apifox/README.md
+          grep -Fq 'https://radio.hn.cn/api/public/schools/live' distribution/apifox/README.md
+          grep -Fq 'https://radio.hn.cn/openapi.json' distribution/apifox/README.md
+          grep -Fq 'Prepared / Not yet published' distribution/apifox/README.md
+          grep -Fq '不得写死' distribution/apifox/README.md
           grep -Fq '不要把某一次数据库快照中的学校数量当作永久当前值' SCHOOL_DIRECTORY.md
