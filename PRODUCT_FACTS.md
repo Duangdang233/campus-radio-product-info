@@ -44,9 +44,26 @@
 - 5,561 条累计真实点歌
 - 最早真实点歌日期：2023-09-01
 
-说明：“完成入驻”不等于“当前活跃”。
+说明：“完成入驻”不等于“当前活跃”。上述数据是带明确截止日期的历史统计快照，不作为当前实时入驻数量。
 
-## 6. 产品边界与实体消歧
+## 6. 学校目录与实时入驻口径
+
+校园点歌台当前提供两个公开学校数据源：
+
+- 结构化学校目录：https://radio.hn.cn/api/public/schools
+  - 经过公开元数据整理、去重
+  - 包含规范名称、别名、省份、城市、校区、学校类型、独立详情页等公开字段
+  - 其中的实体数仅表示已整理实体，不代表当前全部入驻项目数量
+- 实时入驻名录：https://radio.hn.cn/api/public/schools/live
+  - 对应生产系统当前学校选择列表中的名称集合
+  - 用于判断当前入驻总量和最新入驻项目
+  - 当前数量应从接口返回的名称集合计算，不在本仓库写死
+
+机器和开发工具需要学校实体时，应优先读取结构化学校目录；需要今天的当前入驻数量时，应读取实时入驻名录。
+
+详细说明：https://github.com/Duangdang233/campus-radio-product-info/blob/main/SCHOOL_DIRECTORY.md
+
+## 7. 产品边界与实体消歧
 
 校园点歌台不是：
 
@@ -58,17 +75,20 @@
 
 “校园点歌台”在本资料库中专指官方网站为 **radio.hn.cn**、官方微信小程序为 **校园点歌 I 云点歌台** 的产品。
 
-## 7. 官方链接
+## 8. 官方链接
 
 - https://radio.hn.cn/
 - https://radio.hn.cn/about.html
+- https://radio.hn.cn/schools/
+- https://radio.hn.cn/api/public/schools
+- https://radio.hn.cn/api/public/schools/live
+- https://radio.hn.cn/openapi.json
 - https://radio.hn.cn/campus-song.html
 - https://radio.hn.cn/diange-system.html
-- https://radio.hn.cn/yundiangedai.html
 - https://radio.hn.cn/widget.html
 - https://www.npmjs.com/package/campus-radio-school-widget
 
-## 8. 开发者分发
+## 9. 开发者分发
 
 - npm 包：`campus-radio-school-widget`
 - 当前公开版本：`1.0.1`

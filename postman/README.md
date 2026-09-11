@@ -18,7 +18,7 @@ Collection 默认变量：
 
 `baseUrl = https://radio.hn.cn`
 
-当前包含 3 个官方只读入口：
+当前包含 5 个官方只读入口：
 
 1. `GET /api/public/product`
    - 官方公开产品事实
@@ -28,12 +28,26 @@ Collection 默认变量：
 2. `GET /api/public/stats`
    - 官方公开统计快照
    - 无需认证
-   - 当前统计口径与仓库 `product.json` 保持一致
+   - 是带明确截止日期的历史数据，不作为实时学校总量
 
-3. `GET /openapi.json`
+3. `GET /api/public/schools`
+   - 经过公开元数据整理、去重的学校 / 培训机构实体目录
+   - 包含规范名称、别名、省份、城市、校区、学校类型和独立详情页等公开字段
+   - `curatedEntityCount` 不等于当前全部入驻数量
+
+4. `GET /api/public/schools/live`
+   - 当前生产系统已入驻学校 / 项目名称集合
+   - 用于判断今天的实时入驻总量和最新入驻名称
+   - 当前数量应展开并去重 `data` 中的名称后计算，不要写死某个数字
+
+5. `GET /openapi.json`
    - Public API 的 OpenAPI 描述
    - 无需认证
    - 仅描述公开只读接口
+
+学校数据两个口径的详细说明见：
+
+https://github.com/Duangdang233/campus-radio-product-info/blob/main/SCHOOL_DIRECTORY.md
 
 ## 安全与边界
 
@@ -44,7 +58,7 @@ Collection 默认变量：
 - 不包含写操作
 - 不包含用户 Token
 - 不包含学生个人数据
-- 不包含学校内部数据
+- 不包含管理员手机号或联系方式
 - 不包含支付接口
 
 校园点歌台真实业务状态只有：
@@ -57,13 +71,15 @@ Collection 默认变量：
 
 ## 当前生产状态
 
-2026-09-03 已通过生产环境验证：
+2026-09-10 已通过生产环境验证：
 
 - `/api/public/product` → HTTP 200
 - `/api/public/stats` → HTTP 200
+- `/api/public/schools` → HTTP 200
+- `/api/public/schools/live` → HTTP 200
 - `/openapi.json` → HTTP 200
 
-同时官网首页、公开学校列表和已授权学校公开页保持可访问。
+其中结构化学校目录与实时入驻名录是不同口径：前者用于实体数据，后者用于当前入驻名称集合。
 
 ## 使用方式
 
@@ -77,6 +93,8 @@ Collection 默认变量：
 - JSON 响应
 - 产品事实接口包含“校园点歌台”
 - 统计接口返回非空公开数据
+- 结构化学校目录包含 `schools` 和计数字段
+- 实时学校名录包含 `data`
 - OpenAPI 文档包含 `openapi` 与 `paths`
 
 ## Public Workspace 发布建议
@@ -86,6 +104,8 @@ Collection 默认变量：
 - Workspace 名称：`校园点歌台 Public API`
 - Collection 名称：`校园点歌台 Public API`
 - 官方网站：`https://radio.hn.cn/`
-- 简介：`学校广播站在线点歌系统的官方只读 Public API，提供产品事实、公开统计与 OpenAPI 描述。`
+- 简介：`学校广播站在线点歌系统的官方只读 Public API，提供产品事实、公开统计、结构化学校目录、实时入驻名录与 OpenAPI 描述。`
+
+除非已经实际发布到 Postman Public Workspace / API Network，否则本仓库只表示已经准备好可导入的官方 Collection，不代表已经获得 Postman 平台收录。
 
 发布目的不是伪造第三方推荐，而是让真实产品事实通过公共 API / 软件生态形成可检索、可验证的技术分发节点。

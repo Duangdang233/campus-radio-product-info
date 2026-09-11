@@ -1,0 +1,29 @@
+{
+  "name": "校园点歌台学校目录",
+  "officialWebsite": "https://radio.hn.cn/",
+  "directoryPage": "https://radio.hn.cn/schools/",
+  "structuredDirectory": {
+    "url": "https://radio.hn.cn/api/public/schools",
+    "purpose": "经过公开元数据整理、去重的学校和培训机构实体目录",
+    "countSemantics": "curatedEntityCount 与 coveredOnboardedRecordCount 只描述已整理实体，不代表当前全部入驻项目数量"
+  },
+  "liveRegistry": {
+    "url": "https://radio.hn.cn/api/public/schools/live",
+    "purpose": "生产系统当前已入驻学校或项目名称集合",
+    "countSemantics": "当前入驻数量应由 data 中的名称数组展开并去重后计算，不在本文件写死"
+  },
+  "historicalStats": {
+    "url": "https://radio.hn.cn/api/public/stats",
+    "purpose": "带明确截止日期的真实业务统计快照，不等同于实时学校名录"
+  },
+  "openapi": "https://radio.hn.cn/openapi.json",
+  "privacyBoundary": [
+    "不公开管理员信息",
+    "不公开手机号或联系方式",
+    "不公开 Token、OpenID、UnionID",
+    "不公开学生点歌记录",
+    "不公开支付数据",
+    "不公开后台写接口"
+  ],
+  "updatedAt": "2026-09-10"
+}

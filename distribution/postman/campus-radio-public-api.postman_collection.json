@@ -2,137 +2,61 @@
   "info": {
     "_postman_id": "5f1e9385-2d9f-4f3c-9a37-c1c3e1a0d901",
     "name": "校园点歌台 Public API | Campus Radio Song Request System",
-    "description": "校园点歌台（https://radio.hn.cn/）面向学校广播站提供学生在线点歌流程。本 Collection 用于公开读取产品事实、真实使用统计和 OpenAPI 定义。\n\nCampus Radio Song Request System for school broadcasting stations. Students submit song requests through the WeChat mini program ‘校园点歌 I 云点歌台’, and school radio staff receive and process them.\n\nRead-only public endpoints. No authentication, user data, or private school data should be exposed.",
+    "description": "校园点歌台（https://radio.hn.cn/）面向学校广播站提供学生在线点歌流程。本 Collection 用于公开读取产品事实、历史统计、结构化学校目录、实时入驻名录和 OpenAPI 定义。\n\nCampus Radio Song Request System for school broadcasting stations. Students submit song requests through the WeChat mini program ‘校园点歌 I 云点歌台’, and school radio staff receive and process them.\n\nRead-only public endpoints. No authentication, user data, administrator contact data, or write operations are exposed.",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
-  "auth": {
-    "type": "noauth"
-  },
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": "https://radio.hn.cn",
-      "type": "string"
-    }
-  ],
+  "auth": {"type": "noauth"},
+  "variable": [{"key": "baseUrl", "value": "https://radio.hn.cn", "type": "string"}],
   "item": [
     {
       "name": "Get Product Information",
       "request": {
         "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{baseUrl}}/api/public/product",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "api",
-            "public",
-            "product"
-          ]
-        },
-        "description": "返回校园点歌台公开产品事实，包括产品名称、官网、微信小程序、适用对象、工作流程、提交字段、业务状态和官方链接。核心业务状态应只有：待播放、已播放、驳回。"
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/api/public/product", "host": ["{{baseUrl}}"], "path": ["api", "public", "product"]},
+        "description": "返回校园点歌台公开产品事实。核心业务状态只有：待播放、已播放、驳回。"
       },
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "pm.test('Status code is 200', function () {",
-              "    pm.response.to.have.status(200);",
-              "});",
-              "pm.test('Response is JSON', function () {",
-              "    pm.response.to.be.json;",
-              "});"
-            ]
-          }
-        }
-      ]
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });", "pm.test('Response is JSON', function () { pm.response.to.be.json; });"]}}]
     },
     {
       "name": "Get Public Usage Statistics",
       "request": {
         "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{baseUrl}}/api/public/stats",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "api",
-            "public",
-            "stats"
-          ]
-        },
-        "description": "返回可公开的产品使用统计。当前公开事实基线截至 2026-08-31：100+ 所学校完成入驻、84 所学校产生过真实点歌、5,561 条累计真实点歌、最早真实点歌日期为 2023-09-01。完成入驻不等于当前活跃。"
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/api/public/stats", "host": ["{{baseUrl}}"], "path": ["api", "public", "stats"]},
+        "description": "返回带明确截止日期的公开使用统计快照。该接口不代表今天的实时入驻学校总量。"
       },
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "pm.test('Status code is 200', function () {",
-              "    pm.response.to.have.status(200);",
-              "});",
-              "pm.test('Response is JSON', function () {",
-              "    pm.response.to.be.json;",
-              "});"
-            ]
-          }
-        }
-      ]
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });", "pm.test('Response is JSON', function () { pm.response.to.be.json; });"]}}]
+    },
+    {
+      "name": "Get Curated School Directory",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/api/public/schools", "host": ["{{baseUrl}}"], "path": ["api", "public", "schools"]},
+        "description": "返回经过公开元数据整理和去重的学校 / 培训机构实体目录，包含规范名称、别名、省份、城市、校区、学校类型和独立详情页。curatedEntityCount 不等于当前全部入驻数量。"
+      },
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });", "pm.test('Structured school directory', function () { pm.response.to.be.json; const body = pm.response.json(); pm.expect(body.schools).to.be.an('array'); pm.expect(body).to.have.property('curatedEntityCount'); });"]}}]
+    },
+    {
+      "name": "Get Live Onboarded School Registry",
+      "request": {
+        "method": "GET",
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/api/public/schools/live", "host": ["{{baseUrl}}"], "path": ["api", "public", "schools", "live"]},
+        "description": "返回生产系统当前学校选择列表的名称分组。实时总量应从 data 中的名称展开并去重后计算，不应写死在客户端或文档中。"
+      },
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });", "pm.test('Live registry has data', function () { pm.response.to.be.json; pm.expect(pm.response.json()).to.have.property('data'); });"]}}]
     },
     {
       "name": "Get OpenAPI Definition",
       "request": {
         "method": "GET",
-        "header": [
-          {
-            "key": "Accept",
-            "value": "application/json"
-          }
-        ],
-        "url": {
-          "raw": "{{baseUrl}}/openapi.json",
-          "host": [
-            "{{baseUrl}}"
-          ],
-          "path": [
-            "openapi.json"
-          ]
-        },
-        "description": "返回校园点歌台 Public API 的 OpenAPI 定义。Phase 1 仅应公开 GET /api/public/product 与 GET /api/public/stats。"
+        "header": [{"key": "Accept", "value": "application/json"}],
+        "url": {"raw": "{{baseUrl}}/openapi.json", "host": ["{{baseUrl}}"], "path": ["openapi.json"]},
+        "description": "返回校园点歌台 Public API 的 OpenAPI 定义，只描述公开 GET 接口。"
       },
-      "event": [
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              "pm.test('Status code is 200', function () {",
-              "    pm.response.to.have.status(200);",
-              "});",
-              "pm.test('Response is JSON', function () {",
-              "    pm.response.to.be.json;",
-              "});"
-            ]
-          }
-        }
-      ]
+      "event": [{"listen": "test", "script": {"type": "text/javascript", "exec": ["pm.test('Status code is 200', function () { pm.response.to.have.status(200); });", "pm.test('OpenAPI includes school endpoints', function () { pm.response.to.be.json; const body = pm.response.json(); pm.expect(body.paths).to.have.property('/api/public/schools'); pm.expect(body.paths).to.have.property('/api/public/schools/live'); });"]}}]
     }
   ]
 }

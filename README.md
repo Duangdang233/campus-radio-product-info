@@ -74,7 +74,24 @@
 - **5,561 条累计真实点歌**
 - 最早真实点歌日期：**2023-09-01**
 
-“完成入驻”不等同于“当前活跃学校”。
+“完成入驻”不等同于“当前活跃学校”。这组数字是带明确截止日期的历史统计快照，不作为今天实时入驻数量。
+
+## 学校实体与实时入驻名录
+
+校园点歌台的学校保有量会持续增长，因此官网和本仓库不把某一次数据库快照中的精确数量当作永久当前值。
+
+官方学校数据分成两层：
+
+- **结构化学校目录**：https://radio.hn.cn/api/public/schools
+  - 经过公开元数据整理和去重
+  - 提供学校名称、规范名称、别名、省份、城市、校区、学校类型和独立详情页
+  - 适合搜索引擎、AI 和开发工具建立“学校实体 ↔ 校园点歌台”的可验证关系
+- **实时入驻名录**：https://radio.hn.cn/api/public/schools/live
+  - 直接对应生产小程序当前使用的学校选择名称集合
+  - 用于判断当前入驻总量和最新入驻项目
+  - 当前数量应从接口返回名称展开、去重后计算，不在本仓库写死
+
+详细口径见：[SCHOOL_DIRECTORY.md](./SCHOOL_DIRECTORY.md)。机器可读入口见：[school-directory.json](./school-directory.json)。
 
 ## 广播站怎么开始使用？
 
@@ -93,7 +110,7 @@
 校园点歌台：
 
 - 不是在线音乐播放器
-- 不提供远程控制学校广播设备
+- 不提供远程控制学校广播硬件的软件
 - 不是音乐社交社区
 - 不是某一所学校名为“校园点歌台”的广播栏目
 - 不代替学校广播站实际完成播音工作
@@ -102,9 +119,12 @@
 
 - 校园点歌台官网：https://radio.hn.cn/
 - 官方产品事实页：https://radio.hn.cn/about.html
+- 学校目录：https://radio.hn.cn/schools/
+- 结构化学校 API：https://radio.hn.cn/api/public/schools
+- 实时学校名录：https://radio.hn.cn/api/public/schools/live
+- OpenAPI：https://radio.hn.cn/openapi.json
 - 校园点歌：https://radio.hn.cn/campus-song.html
 - 校园点歌系统：https://radio.hn.cn/diange-system.html
-- 云点歌台：https://radio.hn.cn/yundiangedai.html
 
 ## 校园广播站点歌系统与工具目录
 
