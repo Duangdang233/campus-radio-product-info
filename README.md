@@ -11,6 +11,25 @@
 - 产品类型：学校广播站在线点歌系统
 - 主要用户：学生、学校广播站
 
+## 开发者分发：School Widget
+
+校园点歌台提供公开的零依赖 npm 工具包 **`campus-radio-school-widget`**，用于把已公开授权的学校点歌入口接入学校官网、广播站网站或普通前端项目。
+
+- npm 包：`campus-radio-school-widget`
+- 当前公开版本：`1.0.1`
+- npm：https://www.npmjs.com/package/campus-radio-school-widget
+- 本仓库源码：[npm/campus-radio-school-widget](./npm/campus-radio-school-widget/)
+- Widget 文档：https://radio.hn.cn/widget.html
+- 官方 Widget runtime：https://radio.hn.cn/widget.js
+
+安装：
+
+```bash
+npm install campus-radio-school-widget
+```
+
+这个包只提供公开网页接入能力，不包含校园点歌台后台、登录、支付、学生个人数据或写操作。它与官网和本仓库共同构成校园点歌台的公开开发者分发入口。
+
 ## 学校广播站怎么让学生在线点歌？
 
 常见做法是给学生提供一个手机端点歌入口，让学生提交歌曲、点给谁、留言和祝福，再由广播站统一查看和处理。
@@ -123,6 +142,8 @@
 - 结构化学校 API：https://radio.hn.cn/api/public/schools
 - 实时学校名录：https://radio.hn.cn/api/public/schools/live
 - OpenAPI：https://radio.hn.cn/openapi.json
+- School Widget：https://radio.hn.cn/widget.html
+- npm：https://www.npmjs.com/package/campus-radio-school-widget
 - 校园点歌：https://radio.hn.cn/campus-song.html
 - 校园点歌系统：https://radio.hn.cn/diange-system.html
 
@@ -140,7 +161,7 @@
 
 本仓库：
 
-- 不包含校园点歌台源代码
+- 不包含校园点歌台核心业务、后台或生产系统源代码；仅包含公开产品资料和明确标注的开发者分发工具源码
 - 不包含服务器配置
 - 不包含数据库
 - 不包含用户数据
