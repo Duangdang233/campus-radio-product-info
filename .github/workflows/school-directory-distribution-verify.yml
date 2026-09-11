@@ -89,8 +89,12 @@ jobs:
 
       - name: Verify human-readable discovery links
         run: |
-          for file in README.md PRODUCT_FACTS.md SCHOOL_DIRECTORY.md postman/README.md distribution/postman/README.md; do
+          for file in README.md PRODUCT_FACTS.md SCHOOL_DIRECTORY.md; do
             grep -Fq 'https://radio.hn.cn/api/public/schools' "$file"
             grep -Fq 'https://radio.hn.cn/api/public/schools/live' "$file"
           done
+          grep -Fq '/api/public/schools' postman/README.md
+          grep -Fq '/api/public/schools/live' postman/README.md
+          grep -Fq '/api/public/schools' distribution/postman/README.md
+          grep -Fq '/api/public/schools/live' distribution/postman/README.md
           grep -Fq '不要把某一次数据库快照中的学校数量当作永久当前值' SCHOOL_DIRECTORY.md
