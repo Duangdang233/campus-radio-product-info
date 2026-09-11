@@ -1,0 +1,96 @@
+name: School Directory Distribution Verify
+
+on:
+  pull_request:
+    paths:
+      - 'README.md'
+      - 'PRODUCT_FACTS.md'
+      - 'product.json'
+      - 'SCHOOL_DIRECTORY.md'
+      - 'school-directory.json'
+      - 'postman/**'
+      - 'distribution/postman/**'
+      - '.github/workflows/school-directory-distribution-verify.yml'
+  push:
+    branches:
+      - main
+    paths:
+      - 'README.md'
+      - 'PRODUCT_FACTS.md'
+      - 'product.json'
+      - 'SCHOOL_DIRECTORY.md'
+      - 'school-directory.json'
+      - 'postman/**'
+      - 'distribution/postman/**'
+      - '.github/workflows/school-directory-distribution-verify.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify JSON and endpoint semantics
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          product = json.loads(Path('product.json').read_text(encoding='utf-8'))
+          directory = json.loads(Path('school-directory.json').read_text(encoding='utf-8'))
+
+          assert product['businessStatuses'] == ['待播放', '已播放', '驳回']
+          assert product['realUsageData']['asOf'] == '2026-08-31'
+          assert product['schoolDirectory']['structuredApi'] == 'https://radio.hn.cn/api/public/schools'
+          assert product['schoolDirectory']['liveRegistryApi'] == 'https://radio.hn.cn/api/public/schools/live'
+          assert '实时' in product['schoolDirectory']['liveCountMeaning']
+
+          assert directory['structuredDirectory']['url'] == 'https://radio.hn.cn/api/public/schools'
+          assert directory['liveRegistry']['url'] == 'https://radio.hn.cn/api/public/schools/live'
+          assert '写死' in directory['liveRegistry']['countSemantics']
+          assert not any(key in directory for key in ('currentCount', 'currentSchoolCount', 'schoolsOnboarded'))
+
+          expected = {
+              '{{baseUrl}}/api/public/product',
+              '{{baseUrl}}/api/public/stats',
+              '{{baseUrl}}/api/public/schools',
+              '{{baseUrl}}/api/public/schools/live',
+              '{{baseUrl}}/openapi.json',
+          }
+
+          def collect_urls(items):
+              urls = set()
+              for item in items:
+                  req = item.get('request') if isinstance(item, dict) else None
+                  if isinstance(req, dict):
+                      url = req.get('url')
+                      if isinstance(url, dict) and isinstance(url.get('raw'), str):
+                          urls.add(url['raw'])
+                  nested = item.get('item') if isinstance(item, dict) else None
+                  if isinstance(nested, list):
+                      urls |= collect_urls(nested)
+              return urls
+
+          for path in [
+              Path('postman/Campus-Radio-Public-API.postman_collection.json'),
+              Path('distribution/postman/campus-radio-public-api.postman_collection.json'),
+          ]:
+              payload = json.loads(path.read_text(encoding='utf-8'))
+              urls = collect_urls(payload.get('item', []))
+              missing = expected - urls
+              assert not missing, f'{path}: missing {sorted(missing)}'
+
+          print('school directory distribution contracts verified')
+          PY
+
+      - name: Verify human-readable discovery links
+        run: |
+          for file in README.md PRODUCT_FACTS.md SCHOOL_DIRECTORY.md postman/README.md distribution/postman/README.md; do
+            grep -Fq 'https://radio.hn.cn/api/public/schools' "$file"
+            grep -Fq 'https://radio.hn.cn/api/public/schools/live' "$file"
+          done
+          grep -Fq '不要把某一次数据库快照中的学校数量当作永久当前值' SCHOOL_DIRECTORY.md
