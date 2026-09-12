@@ -7,6 +7,7 @@
     "doesNotPublishStudentData": true,
     "doesNotAuthorizeSchoolDetailPages": true,
     "explicitBrandTextRequiredForBrandMentionClaim": true,
+    "historicalProductNameRule": "Historical product names such as 云点歌台 are recorded only when continuity with the current Campus Radio mini-program is verified; unrelated same-name products are excluded.",
     "levels": {
       "A": "School main official channel or publisher identity independently corroborated, with school-specific song-request instructions or interface evidence.",
       "B": "School-affiliated broadcast/student channel or strong school-specific publication evidence, but not the school's main official account.",
@@ -155,6 +156,37 @@
         "publisher is the school's main official WeChat account",
         "current school activity",
         "request volume"
+      ]
+    },
+    {
+      "school": "山东城市服务职业学院",
+      "sourceUrl": "https://mp.weixin.qq.com/s/LhzxosVYJ70YNm4_AlKyuQ",
+      "sourcePlatform": "WeChat Official Account article",
+      "publisher": "山东城市服务职业学院",
+      "publisherRelation": "official_school_wechat",
+      "publisherVerification": {
+        "status": "corroborated_account_identity_article_context_user_verified",
+        "referenceUrl": "https://www.sdcs.edu.cn/zhaojiuban/info/1028/1287.htm",
+        "basis": "The school's official website identifies 山东城市服务职业学院 as the college's official WeChat account; the supplied source was manually identified by the product operator as an article from that school account."
+      },
+      "observedAt": "2026-09-12",
+      "evidenceLevel": "A",
+      "observedEvidence": [
+        "The school-side article introduces the song-request mini-program under the historical product name 云点歌台.",
+        "The product operator confirmed that 云点歌台 in this article is the same mini-program that is now named 校园点歌 I 云点歌台."
+      ],
+      "explicitCampusRadioBrandTextObserved": false,
+      "productNameAtPublication": "云点歌台",
+      "currentProductName": "校园点歌 I 云点歌台",
+      "productIdentityContinuity": "operator_confirmed_same_miniprogram_before_rename",
+      "supports": [
+        "school-side public historical product usage linkage",
+        "historical product-name continuity"
+      ],
+      "doesNotClaim": [
+        "current school activity",
+        "request volume",
+        "that unrelated products named 云点歌台 are Campus Radio"
       ]
     }
   ]
