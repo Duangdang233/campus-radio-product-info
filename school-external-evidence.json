@@ -1,0 +1,161 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-09-12",
+  "purpose": "Record public school-side evidence that links named schools or their broadcast-station channels to a campus song-request mini-program entry used by Campus Radio.",
+  "evidencePolicy": {
+    "doesNotMeanCurrentActivity": true,
+    "doesNotPublishStudentData": true,
+    "doesNotAuthorizeSchoolDetailPages": true,
+    "explicitBrandTextRequiredForBrandMentionClaim": true,
+    "levels": {
+      "A": "School main official channel or publisher identity independently corroborated, with school-specific song-request instructions or interface evidence.",
+      "B": "School-affiliated broadcast/student channel or strong school-specific publication evidence, but not the school's main official account.",
+      "C": "Useful public evidence whose publisher relationship still needs independent corroboration."
+    }
+  },
+  "schools": [
+    {
+      "school": "贵州中医药大学时珍学院",
+      "sourceUrl": "https://mp.weixin.qq.com/s/qr-lc9181292oPdePQqKSA",
+      "sourcePlatform": "WeChat Official Account article",
+      "publisher": "贵州中医药大学时珍学院",
+      "publisherRelation": "official_school_wechat",
+      "publisherVerification": {
+        "status": "corroborated",
+        "referenceUrl": "https://www.gzyszxy.cn/hr/2023/07/17/%E8%B4%B5%E5%B7%9E%E4%B8%AD%E5%8C%BB%E8%8D%AF%E5%A4%A7%E5%AD%A6%E6%97%B6%E7%8F%8D%E5%AD%A6%E9%99%A22023%E5%B9%B4%E7%AC%AC%E4%BA%8C%E6%AC%A1%E9%9D%A2%E5%90%91%E7%A4%BE%E4%BC%9A%E6%8B%9B%E8%81%98/",
+        "basis": "The school's official website identifies 贵州中医药大学时珍学院 as its official WeChat account."
+      },
+      "observedAt": "2026-09-12",
+      "evidenceLevel": "A",
+      "observedEvidence": [
+        "The school-side article provides a QR-code entry for song requests.",
+        "The embedded mini-program screen shows 贵州中医药大学时珍学院 as the selected school.",
+        "The article instructs readers to confirm that the school name has switched to the school's song-request platform."
+      ],
+      "explicitCampusRadioBrandTextObserved": false,
+      "supports": [
+        "school-side public song-request instructions",
+        "school-specific mini-program usage linkage"
+      ],
+      "doesNotClaim": [
+        "current school activity",
+        "request volume",
+        "endorsement of every Campus Radio product claim"
+      ]
+    },
+    {
+      "school": "新余新兴产业工程学校",
+      "sourceUrl": "https://mp.weixin.qq.com/s/7ONhl6_FDf3_N8BDhHpNCw",
+      "sourcePlatform": "WeChat Official Account article",
+      "publisher": "新余新兴产业工程学校",
+      "publisherRelation": "official_school_wechat",
+      "publisherVerification": {
+        "status": "corroborated",
+        "referenceUrl": "https://xxcy.jxue.edu.cn/732/list.htm",
+        "basis": "The school's official website publishes its WeChat official-account information and tells users to search 新余新兴产业工程学校."
+      },
+      "observedAt": "2026-09-12",
+      "evidenceLevel": "A",
+      "observedEvidence": [
+        "The school-side article explains how to scan into the song-request entry.",
+        "The embedded mini-program screen shows 新余新兴产业工程学校 as the selected school.",
+        "The mini-program interface shown in the article includes the school onboarding and song-request area."
+      ],
+      "explicitCampusRadioBrandTextObserved": false,
+      "supports": [
+        "school-side public song-request instructions",
+        "school-specific mini-program usage linkage"
+      ],
+      "doesNotClaim": [
+        "current school activity",
+        "request volume",
+        "endorsement of every Campus Radio product claim"
+      ]
+    },
+    {
+      "school": "新疆科技职业技术学院",
+      "sourceUrl": "https://mp.weixin.qq.com/s/Q6JUbwVJYvMLLnII9ENmjQ",
+      "sourcePlatform": "WeChat Official Account article",
+      "publisher": "school-affiliated account shown in supplied evidence",
+      "publisherRelation": "school_affiliated_wechat",
+      "publisherVerification": {
+        "status": "partial",
+        "referenceUrl": "https://www.xjkjzyjsxy.com/",
+        "basis": "The school identity is independently verified through the official website; the exact WeChat publisher account shown in the article has not yet been independently matched to a school web page."
+      },
+      "observedAt": "2026-09-12",
+      "evidenceLevel": "B",
+      "observedEvidence": [
+        "The article labels the entry as a campus broadcast-station song-request platform.",
+        "The article instructs readers to scan a 点歌台 QR code to enter the broadcast-station song-request platform.",
+        "The next step shown in the article starts the school selection flow for 新疆科技职业技术学院."
+      ],
+      "explicitCampusRadioBrandTextObserved": false,
+      "supports": [
+        "school-specific public song-request instructions",
+        "campus broadcast-station song-request usage linkage"
+      ],
+      "doesNotClaim": [
+        "publisher is the school's main official WeChat account",
+        "current school activity",
+        "request volume"
+      ]
+    },
+    {
+      "school": "荆州学院",
+      "sourceUrl": "https://mp.weixin.qq.com/s/QVMAr6US6_pZVcF54ct4jQ",
+      "sourcePlatform": "WeChat Official Account article",
+      "publisher": "荆州学院",
+      "publisherRelation": "official_school_wechat",
+      "publisherVerification": {
+        "status": "corroborated",
+        "referenceUrl": "https://www.jzun.edu.cn/xygk/683.htm",
+        "basis": "The school's official website exposes its official WeChat channel, and the supplied article screenshot is published under the verified 荆州学院 account."
+      },
+      "observedAt": "2026-09-12",
+      "evidenceLevel": "A",
+      "observedEvidence": [
+        "The school-side article provides a 点歌方式 section with a mini-program QR code.",
+        "The article also publishes song-request rules for the school audience."
+      ],
+      "explicitCampusRadioBrandTextObserved": false,
+      "supports": [
+        "school-side public song-request instructions",
+        "school-specific mini-program entry linkage"
+      ],
+      "doesNotClaim": [
+        "current school activity",
+        "request volume",
+        "endorsement of every Campus Radio product claim"
+      ]
+    },
+    {
+      "school": "临沂科技职业学院",
+      "sourceUrl": "https://mp.weixin.qq.com/s/gkVMI67xtf_8HhovwJ9hJw",
+      "sourcePlatform": "WeChat Official Account article",
+      "publisher": "Link临科之声",
+      "publisherRelation": "school_radio_station_wechat",
+      "publisherVerification": {
+        "status": "corroborated_as_school_radio_channel",
+        "referenceUrl": "https://school.ijiandao.com/sc/daxue/11454.html",
+        "basis": "A public school-content mirror credits 临科之声大学生广播站, while the supplied WeChat article identifies Link临科之声 as 临沂科技职业学院广播站."
+      },
+      "observedAt": "2026-09-12",
+      "evidenceLevel": "B",
+      "observedEvidence": [
+        "The radio-station article tells readers to open the 聆听 menu and then 点歌台.",
+        "The illustrated mini-program screen shows 临沂科技职业学院 as the selected school and exposes the 点歌 entry."
+      ],
+      "explicitCampusRadioBrandTextObserved": false,
+      "supports": [
+        "school radio-station public song-request instructions",
+        "school-specific mini-program usage linkage"
+      ],
+      "doesNotClaim": [
+        "publisher is the school's main official WeChat account",
+        "current school activity",
+        "request volume"
+      ]
+    }
+  ]
+}
