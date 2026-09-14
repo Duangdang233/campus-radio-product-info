@@ -20,6 +20,7 @@
 - 当前公开版本：`1.0.1`
 - npm：https://www.npmjs.com/package/campus-radio-school-widget
 - 本仓库源码：[npm/campus-radio-school-widget](./npm/campus-radio-school-widget/)
+- 外部分发 / 索引状态：[distribution/package-indexes](./distribution/package-indexes/)
 - Widget 文档：https://radio.hn.cn/widget.html
 - 官方 Widget runtime：https://radio.hn.cn/widget.js
 
