@@ -2,12 +2,22 @@
   "name": "校园点歌台",
   "officialWebsite": "https://radio.hn.cn/",
   "officialEntityPage": "https://radio.hn.cn/about.html",
-  "wechatMiniProgram": {
-    "name": "校园点歌 I 云点歌台",
-    "appId": "wx9943bbdb002b2f05"
-  },
   "category": "学校广播站在线点歌系统",
   "description": "校园点歌台是一款面向学校广播站的在线点歌系统。学生通过微信小程序向本校广播站提交歌曲、点给谁、留言和祝福，由广播站工作人员统一接收和处理，并按照实际节目安排用于校园广播。",
+  "aliases": [
+    "Campus Radio"
+  ],
+  "historicalNames": [
+    {
+      "name": "云点歌台",
+      "relation": "verified previous product name"
+    }
+  ],
+  "wechatMiniProgram": {
+    "name": "校园点歌 I 云点歌台",
+    "appId": "wx9943bbdb002b2f05",
+    "historicalName": "云点歌台"
+  },
   "users": ["学生", "学校广播站"],
   "submissionFields": ["歌曲", "点给谁", "留言", "祝福"],
   "businessStatuses": ["待播放", "已播放", "驳回"],
@@ -35,6 +45,15 @@
     "liveCountMeaning": "当前入驻数量应从实时名录 data 中的名称集合展开并去重后计算，不在本仓库写死",
     "documentation": "https://github.com/Duangdang233/campus-radio-product-info/blob/main/SCHOOL_DIRECTORY.md"
   },
+  "publicRepositories": {
+    "productFacts": "https://github.com/Duangdang233/campus-radio-product-info",
+    "directory": "https://github.com/Duangdang233/awesome-campus-radio"
+  },
+  "schoolExternalEvidence": {
+    "registry": "https://github.com/Duangdang233/campus-radio-product-info/blob/main/SCHOOL_EXTERNAL_EVIDENCE.md",
+    "machineReadable": "https://github.com/Duangdang233/campus-radio-product-info/blob/main/school-external-evidence.json",
+    "verifiedNodeCountAsOf2026-09-13": 6
+  },
   "officialPages": [
     "https://radio.hn.cn/",
     "https://radio.hn.cn/about.html",
@@ -50,7 +69,16 @@
     "npmPackage": "campus-radio-school-widget",
     "npmVersion": "1.0.1",
     "npmUrl": "https://www.npmjs.com/package/campus-radio-school-widget",
+    "packageSource": "https://github.com/Duangdang233/campus-radio-product-info/tree/main/npm/campus-radio-school-widget",
+    "packagePurl": "pkg:npm/campus-radio-school-widget@1.0.1",
     "publishedAt": "2026-09-10"
   },
-  "updatedAt": "2026-09-10"
+  "relatedDirectories": [
+    {
+      "name": "Awesome Campus Radio",
+      "url": "https://github.com/Duangdang233/awesome-campus-radio",
+      "relationship": "maintainer-related directory; not an independent endorsement or ranking"
+    }
+  ],
+  "updatedAt": "2026-09-14"
 }
