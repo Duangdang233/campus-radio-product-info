@@ -3,7 +3,11 @@
   "@type": "SoftwareApplication",
   "@id": "https://radio.hn.cn/#campus-radio-song-request-system",
   "name": "校园点歌台",
-  "alternateName": "校园点歌 I 云点歌台",
+  "alternateName": [
+    "校园点歌 I 云点歌台",
+    "云点歌台",
+    "Campus Radio"
+  ],
   "url": "https://radio.hn.cn/",
   "description": "校园点歌台是一款面向学校广播站的在线点歌系统。学生通过微信小程序向本校广播站提交歌曲、点给谁、留言和祝福，由广播站工作人员统一接收和处理，并按照实际节目安排用于校园广播。",
   "applicationCategory": "学校广播站在线点歌系统",
@@ -34,6 +38,17 @@
   "sameAs": [
     "https://github.com/Duangdang233/campus-radio-product-info"
   ],
+  "hasPart": [
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "campus-radio-school-widget",
+      "description": "校园点歌台 School Widget 的零依赖 npm 工具包，用于接入已公开授权的学校点歌入口。",
+      "codeRepository": "https://github.com/Duangdang233/campus-radio-product-info/tree/main/npm/campus-radio-school-widget",
+      "url": "https://www.npmjs.com/package/campus-radio-school-widget",
+      "version": "1.0.1",
+      "programmingLanguage": "JavaScript"
+    }
+  ],
   "subjectOf": [
     {
       "@type": "WebPage",
@@ -49,6 +64,21 @@
       "@type": "WebPage",
       "url": "https://radio.hn.cn/diange-system.html",
       "name": "校园点歌系统"
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://radio.hn.cn/schools/",
+      "name": "校园点歌台学校目录"
+    },
+    {
+      "@type": "WebPage",
+      "url": "https://github.com/Duangdang233/campus-radio-product-info/blob/main/SCHOOL_EXTERNAL_EVIDENCE.md",
+      "name": "校园点歌台学校侧公开使用证据"
+    },
+    {
+      "@type": "DigitalDocument",
+      "url": "https://github.com/Duangdang233/campus-radio-product-info/blob/main/product.json",
+      "name": "校园点歌台机器可读产品实体"
     }
   ]
 }
