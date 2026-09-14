@@ -71,7 +71,22 @@
     "npmUrl": "https://www.npmjs.com/package/campus-radio-school-widget",
     "packageSource": "https://github.com/Duangdang233/campus-radio-product-info/tree/main/npm/campus-radio-school-widget",
     "packagePurl": "pkg:npm/campus-radio-school-widget@1.0.1",
-    "publishedAt": "2026-09-10"
+    "publishedAt": "2026-09-10",
+    "cdnMirrors": {
+      "jsDelivr": "https://cdn.jsdelivr.net/npm/campus-radio-school-widget@1.0.1/index.js",
+      "unpkg": "https://unpkg.com/campus-radio-school-widget@1.0.1/index.js"
+    },
+    "observedThirdPartyIndexes": [
+      {
+        "name": "Socket",
+        "url": "https://socket.dev/npm/package/campus-radio-school-widget",
+        "observedAt": "2026-09-15",
+        "indexedVersion": "1.0.0",
+        "status": "indexed-stale",
+        "note": "Independent package index observed; it still reflected 1.0.0 and the older README when checked."
+      }
+    ],
+    "distributionStatus": "npm is canonical; CDN URLs are npm mirrors and are not independent endorsements; third-party indexes may lag behind the current npm version."
   },
   "relatedDirectories": [
     {
@@ -80,5 +95,5 @@
       "relationship": "maintainer-related directory; not an independent endorsement or ranking"
     }
   ],
-  "updatedAt": "2026-09-14"
+  "updatedAt": "2026-09-15"
 }

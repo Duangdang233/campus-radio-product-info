@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "package": "campus-radio-school-widget",
+  "canonicalRegistry": "npm",
+  "canonicalVersion": "1.0.1",
+  "packagePurl": "pkg:npm/campus-radio-school-widget@1.0.1",
+  "distribution": [
+    {
+      "name": "npm",
+      "kind": "canonical-registry",
+      "url": "https://www.npmjs.com/package/campus-radio-school-widget",
+      "version": "1.0.1",
+      "status": "published"
+    },
+    {
+      "name": "jsDelivr",
+      "kind": "npm-cdn-mirror",
+      "url": "https://cdn.jsdelivr.net/npm/campus-radio-school-widget@1.0.1/index.js",
+      "version": "1.0.1",
+      "status": "distribution-url"
+    },
+    {
+      "name": "UNPKG",
+      "kind": "npm-cdn-mirror",
+      "url": "https://unpkg.com/campus-radio-school-widget@1.0.1/index.js",
+      "version": "1.0.1",
+      "status": "distribution-url"
+    },
+    {
+      "name": "Socket",
+      "kind": "independent-package-index",
+      "url": "https://socket.dev/npm/package/campus-radio-school-widget",
+      "observedAt": "2026-09-15",
+      "indexedVersion": "1.0.0",
+      "status": "indexed-stale"
+    }
+  ],
+  "pendingApiDistribution": [
+    {"name": "Apifox API Hub", "status": "prepared-not-published"},
+    {"name": "APIs.guru", "status": "prepared-not-submitted"},
+    {"name": "Postman Public API Network", "status": "prepared-not-published"}
+  ],
+  "updatedAt": "2026-09-15"
+}
