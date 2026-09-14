@@ -1,0 +1,4 @@
+npm 1.0.1 = canonical published version
+jsDelivr / UNPKG = npm mirror distribution URLs
+Socket = independently observed index; still reflected 1.0.0 when checked on 2026-09-15
+Apifox / APIs.guru / Postman = prepared, not published/accepted
