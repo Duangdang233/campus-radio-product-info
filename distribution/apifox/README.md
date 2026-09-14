@@ -2,29 +2,37 @@
 
 状态：**Prepared / Not yet published**
 
-本目录用于在校园点歌台 Public API 生产上线后，将官方 OpenAPI 文档发布到 Apifox 公共文档站与 API Hub。
+本目录用于将校园点歌台官方 Public API 发布到 Apifox 公共文档站 / API Hub。目标是建立真实、可搜索、机器可读取的 API 实体节点，不把目录收录描述成第三方推荐。
 
-## 为什么选择 Apifox
+## 当前生产定义
 
-Apifox 是中国开发者常用的 API 设计与文档平台。公开文档站可以直接被互联网访问，并可选择发布到 API Hub，形成一个独立于 `radio.hn.cn` 与 GitHub 的公开软件实体节点。
+- OpenAPI：https://radio.hn.cn/openapi.json
+- OpenAPI 版本：`3.1.0`
+- API 定义版本：`1.1.0`
+- Server：https://radio.hn.cn
+- 认证：无
+- 写操作：无
 
-本发布包的目标不是制造第三方背书，而是让真实 Public API 出现在一个公开、可搜索、机器可读取的软件生态平台中。
+当前 OpenAPI 描述的公开 GET 数据入口：
 
-## 生产发布前提
+- `GET /api/public/product` — 官方产品事实
+- `GET /api/public/stats` — 带截止日期的公开聚合统计
+- `GET /api/public/schools` — 已整理、去重的公开学校 / 教育实体目录
+- `GET /api/public/schools/live` — 当前生产学校选择名称集合
 
-只有以下生产地址均真实返回 HTTP 200 后才允许公开发布：
+另有 `GET /openapi.json` 作为机器可读接口定义入口。
 
-- `https://radio.hn.cn/api/public/product`
-- `https://radio.hn.cn/api/public/stats`
-- `https://radio.hn.cn/openapi.json`
+## 发布前提
 
-并确认：
+发布前确认上述生产地址均可访问，并确认：
 
-- 无需认证
-- 不包含用户数据
-- 不包含服务器配置或内部信息
-- 产品状态只能是 `待播放`、`已播放`、`驳回`
-- 数据口径与官网 `about.html`、GitHub `PRODUCT_FACTS.md` 一致
+- 无需认证；
+- 只有公开、只读信息；
+- 不包含学生记录、管理员联系方式、Token / OpenID / UnionID、支付数据、二维码配置或服务器内部信息；
+- 业务状态只能是 `待播放`、`已播放`、`驳回`；
+- `/api/public/stats` 的历史统计口径不冒充实时学校数量；
+- `/api/public/schools` 的结构化实体数不冒充实时入驻总量；
+- 实时入驻名称集合以 `/api/public/schools/live` 为准。
 
 ## 推荐项目资料
 
@@ -34,13 +42,13 @@ Apifox 是中国开发者常用的 API 设计与文档平台。公开文档站�
 
 **一句话描述**
 
-校园点歌台面向学校广播站提供的公开只读 API，用于读取产品事实、公开使用统计与 OpenAPI 定义。
+校园点歌台面向学校广播站提供的公开只读 API，用于读取产品事实、历史聚合统计、学校实体目录与当前学校名称集合。
 
 **详细描述**
 
 校园点歌台是一款面向学校广播站的在线点歌系统。学生通过微信小程序「校园点歌 I 云点歌台」向本校广播站提交歌曲、点给谁、留言和祝福，由广播站工作人员统一接收和处理，并用于校园广播。
 
-Public API 只公开产品与统计信息，不提供学生数据、学校私有数据、后台管理能力或写操作。
+Public API 只公开产品与目录事实，不提供学生数据、学校内部管理数据、后台能力或写操作。
 
 **官网**
 
@@ -50,63 +58,41 @@ https://radio.hn.cn/
 
 https://radio.hn.cn/about.html
 
+**机器可读产品实体**
+
+https://github.com/Duangdang233/campus-radio-product-info/blob/main/product.json
+
 **公开资料仓库**
 
 https://github.com/Duangdang233/campus-radio-product-info
 
-**关键词建议**
-
-- 校园点歌台
-- 校园广播站
-- 学校广播站
-- 点歌系统
-- 在线点歌
-- 微信小程序
-- campus radio
-- school radio
-- song request
-
 ## Apifox 导入方式
 
-生产 OpenAPI 上线后，优先直接通过 URL 导入：
+直接通过长期生产 URL 导入：
 
 `https://radio.hn.cn/openapi.json`
 
-不要手工重新维护另一份接口定义，以免事实漂移。
+不要手工维护第二份 OpenAPI，以免事实漂移。
 
-## 文档站设置
+## 发布设置
 
 建议：
 
-- 可见性：公开发布
-- 项目标题：`校园点歌台 Public API｜学校广播站在线点歌系统`
-- 简介中明确出现：`学校广播站`、`在线点歌系统`、`微信小程序`
-- 官网链接：`https://radio.hn.cn/`
-- 开启公开文档搜索
-- 允许发布到 API Hub
-- 若当前 Apifox 版本支持公开文档 MCP，可开启只读文档 MCP
+- 可见性：公开；
+- 项目标题：`校园点歌台 Public API｜学校广播站在线点歌系统`；
+- 官网链接：`https://radio.hn.cn/`；
+- 开启公开文档搜索；
+- 可发布到 API Hub；
+- 若提供公开文档 MCP，只开放本 Public API 文档的只读读取。
 
-## API Hub 发布
+## 验收
 
-公开文档站确认无敏感信息后，再申请发布到 API Hub。
+真正发布后再记录：
 
-API Hub 页面必须明确说明：
+1. Apifox 公共文档永久 URL；
+2. API Hub 项目 URL；
+3. 页面是否明确关联 `校园点歌台` ↔ `radio.hn.cn`；
+4. OpenAPI 是否能够读取 / 导出；
+5. 页面接口是否与生产 `openapi.json` 一致。
 
-> 本 API 为校园点歌台官方公开只读 API，仅用于公开产品信息与使用统计，不提供学生数据、学校内部数据或写操作。
-
-## GEO 验收
-
-发布后至少记录：
-
-1. Apifox 公共文档永久 URL
-2. API Hub 项目 URL
-3. 搜索 `校园广播站 点歌 API` 是否能够检索到
-4. 页面是否明确关联 `校园点歌台` ↔ `radio.hn.cn`
-5. OpenAPI 是否可导出/读取
-6. MCP（若开启）是否只能读取公开文档
-
-## 当前状态
-
-现在只完成发布资料准备。
-
-在生产 Public API 验收前，不将未上线接口作为已可用 API 对外宣传。
+当前仍是 **Prepared / Not yet published**。

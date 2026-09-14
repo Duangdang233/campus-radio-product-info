@@ -10,6 +10,9 @@ on:
       - 'school-directory.json'
       - 'postman/**'
       - 'distribution/postman/**'
+      - 'distribution/schema/**'
+      - 'distribution/apifox/**'
+      - 'distribution/apis-guru/**'
       - '.github/workflows/school-directory-distribution-verify.yml'
   push:
     branches:
@@ -22,6 +25,9 @@ on:
       - 'school-directory.json'
       - 'postman/**'
       - 'distribution/postman/**'
+      - 'distribution/schema/**'
+      - 'distribution/apifox/**'
+      - 'distribution/apis-guru/**'
       - '.github/workflows/school-directory-distribution-verify.yml'
 
 permissions:
@@ -42,6 +48,7 @@ jobs:
 
           product = json.loads(Path('product.json').read_text(encoding='utf-8'))
           directory = json.loads(Path('school-directory.json').read_text(encoding='utf-8'))
+          entity = json.loads(Path('distribution/schema/entity.jsonld').read_text(encoding='utf-8'))
 
           assert product['businessStatuses'] == ['待播放', '已播放', '驳回']
           assert product['realUsageData']['asOf'] == '2026-08-31'
@@ -53,6 +60,16 @@ jobs:
           assert directory['liveRegistry']['url'] == 'https://radio.hn.cn/api/public/schools/live'
           assert '写死' in directory['liveRegistry']['countSemantics']
           assert not any(key in directory for key in ('currentCount', 'currentSchoolCount', 'schoolsOnboarded'))
+
+          assert entity['@type'] == 'SoftwareApplication'
+          assert entity['name'] == '校园点歌台'
+          aliases = entity.get('alternateName', [])
+          assert '校园点歌 I 云点歌台' in aliases
+          assert '云点歌台' in aliases
+          assert 'Campus Radio' in aliases
+          widget = next((item for item in entity.get('hasPart', []) if item.get('name') == 'campus-radio-school-widget'), None)
+          assert widget and widget.get('version') == '1.0.1'
+          assert widget.get('url') == 'https://www.npmjs.com/package/campus-radio-school-widget'
 
           expected = {
               '{{baseUrl}}/api/public/product',
@@ -97,4 +114,13 @@ jobs:
           grep -Fq '/api/public/schools/live' postman/README.md
           grep -Fq '/api/public/schools' distribution/postman/README.md
           grep -Fq '/api/public/schools/live' distribution/postman/README.md
+          for file in distribution/apifox/README.md distribution/apis-guru/README.md; do
+            grep -Fq '/api/public/product' "$file"
+            grep -Fq '/api/public/stats' "$file"
+            grep -Fq '/api/public/schools' "$file"
+            grep -Fq '/api/public/schools/live' "$file"
+            grep -Fq 'https://radio.hn.cn/openapi.json' "$file"
+          done
+          grep -Fq 'Prepared / Not yet published' distribution/apifox/README.md
+          grep -Fq 'Prepared / Not yet submitted' distribution/apis-guru/README.md
           grep -Fq '不要把某一次数据库快照中的学校数量当作永久当前值' SCHOOL_DIRECTORY.md
