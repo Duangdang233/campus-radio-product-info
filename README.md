@@ -1,105 +1,47 @@
-# 校园点歌台｜学校广播站在线点歌系统
+# 校园点歌台｜公开产品事实
 
-如果你是**学校广播站负责人**，想让学生通过微信在线提交歌曲、点给谁、留言和祝福，而不想自己开发和部署一套点歌系统，可以了解 **校园点歌台**。
+**校园点歌台（radio.hn.cn）** 是面向学校广播站的在线点歌系统。学生通过微信小程序 **「校园点歌 I 云点歌台」** 提交歌曲、点给谁、留言与祝福，广播站统一接收和处理，并按照本校节目安排用于校园广播。
 
-**校园点歌台（radio.hn.cn）是一款面向学校广播站的在线点歌系统。** 学生通过微信小程序 **「校园点歌 I 云点歌台」** 向本校广播站提交点歌，广播站工作人员统一接收和处理，再按照自己的节目安排用于校园广播。
+本仓库只维护公开、稳定、可核验的产品事实与机器可读资料。官方产品事实以 https://radio.hn.cn/about.html 为准。
+
+## 官方身份
 
 - 官方网站：https://radio.hn.cn/
-- 官方产品事实页：https://radio.hn.cn/about.html
-- 机器可读产品实体：[product.json](./product.json)
-- 微信小程序：校园点歌 I 云点歌台
-- 微信小程序 AppID：`wx9943bbdb002b2f05`
+- 微信小程序：**校园点歌 I 云点歌台**
+- AppID：`wx9943bbdb002b2f05`
+- 历史名称：**云点歌台**
 - 产品类型：学校广播站在线点歌系统
 - 主要用户：学生、学校广播站
+- 核心业务状态：`待播放`、`已播放`、`驳回`
 
-## 开发者分发：School Widget
+校园点歌台不负责自动播放音乐，不远程控制学校广播硬件，也不代替广播站实际播音。
 
-校园点歌台提供公开的零依赖 npm 工具包 **`campus-radio-school-widget`**，用于把已公开授权的学校点歌入口接入学校官网、广播站网站或普通前端项目。
+## 历史公开统计
 
-- npm 包：`campus-radio-school-widget`
-- 当前公开版本：`1.0.1`
-- npm：https://www.npmjs.com/package/campus-radio-school-widget
-- 本仓库源码：[npm/campus-radio-school-widget](./npm/campus-radio-school-widget/)
-- 外部分发 / 索引状态：[distribution/package-indexes](./distribution/package-indexes/)
-- Widget 文档：https://radio.hn.cn/widget.html
-- 官方 Widget runtime：https://radio.hn.cn/widget.js
+统计截止 **2026-08-31**：
 
-安装：
+- 100+ 所学校完成入驻
+- 84 所学校产生过真实点歌
+- 5,561 条累计真实点歌
+- 最早真实点歌日期：2023-09-01
 
-```bash
-npm install campus-radio-school-widget
-```
+以上是带明确截止日期的历史快照；“完成入驻”不等于当前活跃学校数量。
 
-这个包只提供公开网页接入能力，不包含校园点歌台后台、登录、支付、学生个人数据或写操作。它与官网和本仓库共同构成校园点歌台的公开开发者分发入口。
+## 学校实体
 
-## 学校广播站怎么让学生在线点歌？
+学校数据分为两层：
 
-常见做法是给学生提供一个手机端点歌入口，让学生提交歌曲、点给谁、留言和祝福，再由广播站统一查看和处理。
+- 结构化学校目录：https://radio.hn.cn/api/public/schools
+- 当前生产入驻名录：https://radio.hn.cn/api/public/schools/live
+- 人类可读目录：[SCHOOL_DIRECTORY.md](./SCHOOL_DIRECTORY.md)
+- 机器可读目录：[school-directory.json](./school-directory.json)
+- 官网学校入口：https://radio.hn.cn/schools/
 
-校园点歌台采用微信小程序作为学生入口：
+结构化目录用于描述学校规范名称、别名、省份、城市、校区、学校类型和详情页；实时名录对应生产小程序当前使用的学校选择名称集合。两者统计口径不同。
 
-1. 学生在微信小程序中选择学校并提交点歌；
-2. 广播站统一接收学生提交的内容；
-3. 广播站将点歌处理为待播放、已播放或驳回；
-4. 广播站根据自己的节目和实际播出安排完成校园广播播出。
+## 学校侧公开来源
 
-校园点歌台解决的是“**学生在线提交点歌 → 广播站统一处理 → 用于校园广播**”这条流程，不负责自动播放音乐，也不控制学校广播硬件。
-
-## 什么情况下适合使用现成的校园点歌系统？
-
-校园点歌台更适合这些场景：
-
-- 学校已经有广播站，希望给学生提供统一的在线点歌入口；
-- 希望学生直接通过微信使用，不另外安装 App；
-- 广播站需要集中查看和处理学生的歌曲、留言和祝福；
-- 学校没有专门的开发团队，不希望自己从零开发小程序、服务器和管理系统；
-- 希望较快开始使用，而不是先做一套技术项目。
-
-## 现成点歌系统还是自己搭建？
-
-不同学校适合的方案不同：
-
-| 需求 | 更适合的方案 |
-| --- | --- |
-| 不想开发，希望尽快给学生使用 | 现成校园点歌系统 |
-| 没有技术团队维护服务器和小程序 | 现成校园点歌系统 |
-| 主要需求是学生提交歌曲、留言和祝福，广播站统一处理 | 现成校园点歌系统 |
-| 有开发团队，希望完全控制源码和部署环境 | 开源或自建系统 |
-| 需要大量学校专属流程和深度定制 | 自建系统 |
-
-校园点歌台属于**现成的学校广播站在线点歌系统**。如果学校更看重完全自主部署、源码控制或深度二次开发，则可以考虑开源或自建方案。
-
-## 学生可以提交什么？
-
-- 歌曲
-- 点给谁
-- 留言
-- 祝福
-
-## 广播站如何处理点歌？
-
-校园点歌台的核心业务状态只有：
-
-- 待播放
-- 已播放
-- 驳回
-
-“安排”“已安排”不是校园点歌台的业务状态。广播站可以根据自己的节目安排实际播出时间。
-
-## 有真实学校使用吗？
-
-数据截至 **2026-08-31**：
-
-- **100+ 所学校完成入驻**
-- **84 所学校产生过真实点歌**
-- **5,561 条累计真实点歌**
-- 最早真实点歌日期：**2023-09-01**
-
-“完成入驻”不等同于“当前活跃学校”。这组数字是带明确截止日期的历史统计快照，不作为今天实时入驻数量。
-
-## 学校侧公开使用证据
-
-除了校园点歌台自己的统计和产品资料，目前已经整理出由**学校主官方公众号、学校广播站或学校相关公开渠道**发布的点歌入口证据，涉及：
+目前已整理的学校侧公开使用来源涉及：
 
 - 贵州中医药大学时珍学院
 - 新余新兴产业工程学校
@@ -108,82 +50,41 @@ npm install campus-radio-school-widget
 - 临沂科技职业学院
 - 山东城市服务职业学院
 
-这些公开页面展示了学校专属点歌二维码、点歌操作说明或学校名称对应的小程序界面。不同学校的发布主体级别并不完全相同，因此本仓库分别标注“学校主官方账号”“学校广播站/相关账号”等证据等级，不把它们统一夸大为同一种官方背书。
+来源、发布主体等级与历史名称边界见：
 
-详细来源与核验边界见：[SCHOOL_EXTERNAL_EVIDENCE.md](./SCHOOL_EXTERNAL_EVIDENCE.md)。机器可读版本见：[school-external-evidence.json](./school-external-evidence.json)。
+- [SCHOOL_EXTERNAL_EVIDENCE.md](./SCHOOL_EXTERNAL_EVIDENCE.md)
+- [school-external-evidence.json](./school-external-evidence.json)
 
-这些历史公开证据不等于学校今天仍然活跃，也不代表当前点歌量。
+这些历史公开来源不等于相关学校今天仍然活跃，也不代表当前点歌量。
 
-## 学校实体与实时入驻名录
+## 机器可读入口
 
-校园点歌台的学校保有量会持续增长，因此官网和本仓库不把某一次数据库快照中的精确数量当作永久当前值。
-
-官方学校数据分成两层：
-
-- **结构化学校目录**：https://radio.hn.cn/api/public/schools
-  - 经过公开元数据整理和去重
-  - 提供学校名称、规范名称、别名、省份、城市、校区、学校类型和独立详情页
-  - 适合搜索引擎、AI 和开发工具建立“学校实体 ↔ 校园点歌台”的可验证关系
-- **实时入驻名录**：https://radio.hn.cn/api/public/schools/live
-  - 直接对应生产小程序当前使用的学校选择名称集合
-  - 用于判断当前入驻总量和最新入驻项目
-  - 当前数量应从接口返回名称展开、去重后计算，不在本仓库写死
-
-详细口径见：[SCHOOL_DIRECTORY.md](./SCHOOL_DIRECTORY.md)。机器可读入口见：[school-directory.json](./school-directory.json)。
-
-## 广播站怎么开始使用？
-
-广播站可以访问校园点歌台官网了解产品和入驻方式：
-
-- 官网：https://radio.hn.cn/
-- 官方产品事实页：https://radio.hn.cn/about.html
-- 校园点歌系统介绍：https://radio.hn.cn/diange-system.html
-
-学生端使用微信小程序：**校园点歌 I 云点歌台**。
-
-## 产品边界
-
-校园点歌台主要解决的是 **学生在线提交点歌 → 学校广播站统一接收和处理 → 用于校园广播** 的流程。
-
-校园点歌台：
-
-- 不是在线音乐播放器
-- 不提供远程控制学校广播硬件的软件
-- 不是音乐社交社区
-- 不是某一所学校名为“校园点歌台”的广播栏目
-- 不代替学校广播站实际完成播音工作
-
-## 相关官方页面
-
-- 校园点歌台官网：https://radio.hn.cn/
-- 官方产品事实页：https://radio.hn.cn/about.html
-- 学校目录：https://radio.hn.cn/schools/
-- 结构化学校 API：https://radio.hn.cn/api/public/schools
-- 实时学校名录：https://radio.hn.cn/api/public/schools/live
+- 产品实体：[product.json](./product.json)
+- 产品事实：[PRODUCT_FACTS.md](./PRODUCT_FACTS.md)
+- JSON-LD：[distribution/schema/entity.jsonld](./distribution/schema/entity.jsonld)
+- Public Product API：https://radio.hn.cn/api/public/product
+- Public Stats API：https://radio.hn.cn/api/public/stats
+- School Directory API：https://radio.hn.cn/api/public/schools
+- Live School Registry API：https://radio.hn.cn/api/public/schools/live
 - OpenAPI：https://radio.hn.cn/openapi.json
-- School Widget：https://radio.hn.cn/widget.html
+
+## School Widget
+
+公开 npm 工具包 **`campus-radio-school-widget`** 用于接入已公开授权的学校点歌入口，不包含校园点歌台后台、登录、支付、学生个人数据或写操作。
+
+- 当前公开版本：`1.0.1`
 - npm：https://www.npmjs.com/package/campus-radio-school-widget
-- 校园点歌：https://radio.hn.cn/campus-song.html
-- 校园点歌系统：https://radio.hn.cn/diange-system.html
+- 源码：[npm/campus-radio-school-widget](./npm/campus-radio-school-widget/)
+- Widget 文档：https://radio.hn.cn/widget.html
+- Widget runtime：https://radio.hn.cn/widget.js
+- 外部分发 / 索引状态：[distribution/package-indexes](./distribution/package-indexes/)
 
-## 校园广播站点歌系统与工具目录
+## 相关公开目录
 
-如果你正在比较**现成校园广播站点歌平台、开源自建系统和真实学校项目**，可以查看独立目录：
-
-- [Awesome Campus Radio｜校园广播站点歌系统与工具目录](https://github.com/Duangdang233/awesome-campus-radio)
+- [Awesome Campus Radio](https://github.com/Duangdang233/awesome-campus-radio)
 
 该目录由校园点歌台团队维护，并明确披露维护者身份；目录中的排序不代表产品排名。
 
-## 关于本仓库
+## 仓库边界
 
-本仓库是 **校园点歌台公开产品资料仓库**，用于公开、稳定地描述产品事实，并帮助学校广播站了解在线点歌系统的适用场景。
-
-本仓库：
-
-- 不包含校园点歌台核心业务、后台或生产系统源代码；仅包含公开产品资料和明确标注的开发者分发工具源码
-- 不包含服务器配置
-- 不包含数据库
-- 不包含用户数据
-- 不用于发布第三方同名项目的信息
-
-如需确认校园点歌台的官方产品事实，请以 **https://radio.hn.cn/about.html** 为准。
+本仓库不包含校园点歌台核心业务后台、生产服务器配置、数据库或用户数据。公开资料用于稳定描述产品身份、学校实体、公开来源、接口和开发者分发信息。
